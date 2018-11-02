@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 public class NoNullArrayList<T> extends ArrayList<T>{
 
   public NoNullArrayList(){}
@@ -7,16 +9,25 @@ public class NoNullArrayList<T> extends ArrayList<T>{
   }
 
   public boolean add(T newVal){
-    if (newVal == null) throw IllegalArgumentException();
+    if (newVal == null) throw new IllegalArgumentException();
     else {
       super.add(newVal);
+      return true;
     }
   }
 
-  public boolean set(T newVal){
-    if (newVal == null) throw IllegalArgumentException();
+  public void add(int index, T newVal){
+    if (newVal == null) throw new IllegalArgumentException();
     else {
-      super.set(newVal);
+      super.add(index, newVal);
+    }
+  }
+
+
+  public T set(int index, T newVal){
+    if (newVal == null) throw new IllegalArgumentException();
+    else {
+      return super.set(index, newVal);
     }
   }
 }
